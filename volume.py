@@ -85,8 +85,7 @@ class Pulse(object):
         """Change the volume percentage by amount of all the sinks"""
         for sink, values in self.sinks.iteritems():
             new_volume = values['volume'] + amount
-            new_volume = max(new_volume, 0)
-            new_volume = min(new_volume, 100)
+            new_volume = min(max(new_volume, 0), 100)
             values['volume'] = new_volume
 
             subprocess.call(['pactl', 'set-sink-volume', sink, str(new_volume) + '%'])
