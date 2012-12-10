@@ -79,8 +79,6 @@ class Pulse(object):
                     else:
                         values['default'] = False
 
-        import pprint; pprint.pprint(self.sinks)
-
     def volume_relative(self, amount):
         """Change the volume percentage by amount of all the sinks"""
         for sink, values in self.sinks.iteritems():
